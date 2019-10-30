@@ -26,14 +26,14 @@ bot.on('message', function(event) {
       return
     }
     event
-      .reply(`您的座位在${table}著`)
+      .reply(`您的座位在${table}桌`)
       .then(function(data) {
         // success
-        console.log(msg)
+        console.log('success',data)
       })
       .catch(function(error) {
         // error
-        console.log('error')
+        console.log('error', error)
       })
     event
       .reply({
@@ -43,11 +43,11 @@ bot.on('message', function(event) {
       })
       .then(function(data) {
         // success
-        console.log(msg)
+        console.log('success',data)
       })
       .catch(function(error) {
         // error
-        console.log('error')
+        console.log('error', error)
       })
   }
 })
