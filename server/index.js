@@ -5,6 +5,7 @@ const { Nuxt, Builder } = require('nuxt')
 const app = express()
 const host = process.env.HOST || '0.0.0.0'
 const port = process.env.PORT || 3000
+const linebotParser = require('../assets/linebotParser')
 
 app.set('port', port)
 
@@ -24,6 +25,8 @@ async function start() {
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
+
+  app.post('/chatbot', linebotParser);
 
   // Listen the server
   app.listen(port, host)
