@@ -8,7 +8,6 @@
 import PlaceList from "@/components/PlaceList";
 import axios from "axios";
 import vuex from "vuex";
-import "normalize.css";
 
 export default {
   name: "App",
