@@ -25,29 +25,34 @@ bot.on('message', function(event) {
         })
       return
     }
+  const msg = `您的座位在${table}桌`
     event
       .reply({
-        type: 'bubble',
-        size: 'giga',
-        hero: {
-          type: 'image',
-          url: 'https://wedding-line-bot.herokuapp.com/map.jpg',
-          aspectMode: 'cover',
-          size: 'full'
-        },
-        body: {
-          type: 'box',
-          layout: 'vertical',
-          contents: [
-            {
-              type: 'text',
-              text: `您的座位在${table}桌`,
-              align: 'center',
-              weight: 'bold',
-              size: 'lg'
-            }
-          ],
-          paddingAll: '0px'
+        type: 'flex',
+        altText: msg,
+        contents: {
+          type: 'bubble',
+          size: 'giga',
+          hero: {
+            type: 'image',
+            url: 'https://wedding-line-bot.herokuapp.com/map.jpg',
+            aspectMode: 'cover',
+            size: 'full'
+          },
+          body: {
+            type: 'box',
+            layout: 'vertical',
+            contents: [
+              {
+                type: 'text',
+                text: msg,
+                align: 'center',
+                weight: 'bold',
+                size: 'lg'
+              }
+            ],
+            paddingAll: '0px'
+          }
         }
       })
       .then(function(data) {
