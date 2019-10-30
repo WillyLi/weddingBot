@@ -1,9 +1,9 @@
 const linebot = require('linebot');
-
+const { channelId, channelSecret, channelAccessToken} = process.env
 const bot = linebot({
-  channelId: '1653391636',
-  channelSecret: 'fd6a966153b3f98c038bbbf77c3d2ff2',
-  channelAccessToken: 'xAIVDGCfX3CLuk3wJRrC1ilwg3NEJvWH803i+kv+jf2+ZQPB3kWaE9ekpXc3C3VPeYlOr/0DgJDD8mfaNjEEwJ61d0K07qru3iWQgG4kPDPVA9+OBv+lQN+G1vTyEYc4I49nuETEjUEJb+RqvLOmVgdB04t89/1O/w1cDnyilFU='
+  channelId,
+  channelSecret,
+  channelAccessToken
 });
 
 bot.on('message', function (event) {
