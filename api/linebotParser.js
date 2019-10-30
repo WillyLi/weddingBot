@@ -9,7 +9,7 @@ const bot = linebot({
 bot.on('message', function(event) {
   console.log(event.message.type)
   if (event.message.type == 'text') {
-    const table = guestMap[req.query.text.trim()]
+    const table = guestMap[event.message.text.trim()]
     event
       .reply({
         type: "template",
