@@ -12,19 +12,9 @@ bot.on('message', function(event) {
     const table = guestMap[event.message.text.trim()]
     event
       .reply({
-        type: "template",
-        altText: `你的位置在${table}桌`,
-        template: {
-          type: "buttons",
-          text: `你的位置在${table}桌`,
-          actions: [
-            {
-              type: "uri",
-              label: "查看座位圖",
-              uri: `line://app/1653391636-27P4EW3W?table=${table}`
-            }
-          ]
-        },
+        type: 'image',
+        originalContentUrl: 'https://wedding-line-bot.herokuapp.com/map.jpg',
+        previewImageUrl: 'https://wedding-line-bot.herokuapp.com/map.jpg'
       })
       .then(function(data) {
         // success
