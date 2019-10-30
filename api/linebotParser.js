@@ -1,4 +1,5 @@
 const linebot = require('linebot')
+const guestMap = require('./guestMap.json')
 const { channelId, channelSecret, channelAccessToken } = process.env
 const bot = linebot({
   channelId,
@@ -8,9 +9,23 @@ const bot = linebot({
 bot.on('message', function(event) {
   console.log(event.message.type)
   if (event.message.type == 'text') {
-    let msg = 'test'
+    const table = guestMap[req.query.text.trim()]
     event
-      .reply(msg)
+      .reply({
+        type: "template",
+        altText: `你的位置在${table}桌`,
+        template: {
+          type: "buttons",
+          text: `你的位置在${table}桌`,
+          actions: [
+            {
+              type: "uri",
+              label: "查看座位圖",
+              uri: `line://app/1653391636-27P4EW3W?table=${table}`
+            }
+          ]
+        },
+      })
       .then(function(data) {
         // success
         console.log(msg)
