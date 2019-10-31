@@ -7,6 +7,7 @@ const bot = linebot({
   channelAccessToken
 })
 bot.on('message', function(event) {
+  console.log(event)
   console.log(event.message.type)
   if (event.message.type == 'text') {
     const table = guestMap[event.message.text.trim()]
