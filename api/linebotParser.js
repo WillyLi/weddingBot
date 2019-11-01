@@ -1,5 +1,5 @@
 const linebot = require('linebot')
-const guestMap = require('./guestMap.json')
+const getTable = require('./getTable')
 const { channelId, channelSecret, channelAccessToken } = process.env
 const bot = linebot({
   channelId,
@@ -10,7 +10,7 @@ bot.on('message', function(event) {
   // const userId = event.userId
   console.log(event.message.type)
   if (event.message.type == 'text') {
-    const table = guestMap[event.message.text.trim()]
+    const table = getTable(event.message.text)
     if (!table) {
       event
         .reply(
@@ -32,8 +32,8 @@ bot.on('message', function(event) {
         msg,
         {
           type: 'image',
-          originalContentUrl: 'https://wedding-line-bot.herokuapp.com/map.jpg',
-          previewImageUrl: 'https://wedding-line-bot.herokuapp.com/map.jpg'
+          originalContentUrl: `https://wedding-line-bot.herokuapp.com/${table}.jpg`,
+          previewImageUrl: `https://wedding-line-bot.herokuapp.com/${table}.jpg`
         }
       ])
       .then(function(data) {
