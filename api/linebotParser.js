@@ -28,6 +28,7 @@ bot.on('message', function(event) {
         // error
         console.log('error', error)
       })
+      return
     }
     const table = getTable(event.message.text)
     if (!table) {
