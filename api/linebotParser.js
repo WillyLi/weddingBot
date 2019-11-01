@@ -10,6 +10,25 @@ bot.on('message', function(event) {
   // const userId = event.userId
   console.log(event.message.type)
   if (event.message.type == 'text') {
+    if(event.message.text == '[Menu]') {
+      event
+      .reply([
+        msg,
+        {
+          type: 'image',
+          originalContentUrl: `https://wedding-line-bot.herokuapp.com/menu.jpg`,
+          previewImageUrl: `https://wedding-line-bot.herokuapp.com/menu.jpg`
+        }
+      ])
+      .then(function(data) {
+        // success
+        console.log('success', data)
+      })
+      .catch(function(error) {
+        // error
+        console.log('error', error)
+      })
+    }
     const table = getTable(event.message.text)
     if (!table) {
       event
