@@ -28,7 +28,7 @@ bot.on('message', function(event) {
   if (event.message.type == 'text') {
     if(event.message.text == '今天吃什麼？') {
       event
-      .reply('')
+      .reply(menu.join('%0D%0A'))
       .then(function(data) {
         // success
         console.log('success', data)
